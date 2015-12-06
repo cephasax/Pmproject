@@ -2,6 +2,9 @@ package main;
 
 import java.util.ArrayList;
 
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 import dao.AlteracaoDao;
 import dao.CursoDao;
 import dao.DocumentoDao;
@@ -16,7 +19,7 @@ import model.Policial;
 public class Principal {
 
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
 		
 		GenericDao gdao = new GenericDao();
 		
@@ -29,8 +32,6 @@ public class Principal {
 		pm2.setDataNascimento("11/05/1978");
 		pm2.setNome("Mane");
 		pm2.setMatricula("195.352-9");
-		
-		
 		
 		Alteracao alt = new Alteracao();
 		alt.setNumeroBg(25);
@@ -140,8 +141,6 @@ public class Principal {
 		pm2.getTelefones().add(tel4);*/
 		
 		
-		
-		
 		/*PolicialDao policialDao = new PolicialDao();
 		AlteracaoDao altDao = new AlteracaoDao();
 		CursoDao cDao = new CursoDao();
@@ -157,6 +156,7 @@ public class Principal {
 			System.out.println(pm.getNome());
 		}*/
 		
+		UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
 		JFPrincipal jfp = JFPrincipal.getInstancia();
 		
 		

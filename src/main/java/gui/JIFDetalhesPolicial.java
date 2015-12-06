@@ -29,7 +29,7 @@ public class JIFDetalhesPolicial extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TpNomePolicial = new javax.swing.JTextPane();
+        TpNome = new javax.swing.JTextPane();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -39,7 +39,7 @@ public class JIFDetalhesPolicial extends javax.swing.JInternalFrame {
         TpNomeMae = new javax.swing.JTextPane();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        TpEstadoCivil = new javax.swing.JTextPane();
+        JpEstadoCivil = new javax.swing.JTextPane();
         jScrollPane6 = new javax.swing.JScrollPane();
         TpNaturalidade = new javax.swing.JTextPane();
         jLabel6 = new javax.swing.JLabel();
@@ -58,72 +58,72 @@ public class JIFDetalhesPolicial extends javax.swing.JInternalFrame {
         TpGraduacao = new javax.swing.JTextPane();
         jScrollPane11 = new javax.swing.JScrollPane();
         TpNomeGuerra = new javax.swing.JTextPane();
-        jLabel13 = new javax.swing.JLabel();
-        jScrollPane12 = new javax.swing.JScrollPane();
-        jTextPane12 = new javax.swing.JTextPane();
         jScrollPane13 = new javax.swing.JScrollPane();
-        jTextPane13 = new javax.swing.JTextPane();
+        TpDataInclusao = new javax.swing.JTextPane();
         jScrollPane14 = new javax.swing.JScrollPane();
-        jTextPane14 = new javax.swing.JTextPane();
+        TpDataExclusao = new javax.swing.JTextPane();
         jScrollPane15 = new javax.swing.JScrollPane();
-        jTextPane15 = new javax.swing.JTextPane();
+        TpProcedencia = new javax.swing.JTextPane();
         jScrollPane16 = new javax.swing.JScrollPane();
-        jTextPane16 = new javax.swing.JTextPane();
+        TpEspecialidade = new javax.swing.JTextPane();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jScrollPane17 = new javax.swing.JScrollPane();
-        jTextPane17 = new javax.swing.JTextPane();
+        TpMatricula = new javax.swing.JTextPane();
         jLabel16 = new javax.swing.JLabel();
         jScrollPane18 = new javax.swing.JScrollPane();
-        jTextPane18 = new javax.swing.JTextPane();
+        TpNumero = new javax.swing.JTextPane();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel17 = new javax.swing.JLabel();
         jScrollPane19 = new javax.swing.JScrollPane();
-        jTextPane19 = new javax.swing.JTextPane();
+        TpRgPm = new javax.swing.JTextPane();
         jLabel18 = new javax.swing.JLabel();
         jScrollPane20 = new javax.swing.JScrollPane();
-        jTextPane20 = new javax.swing.JTextPane();
+        TpCpf = new javax.swing.JTextPane();
         jScrollPane21 = new javax.swing.JScrollPane();
-        jTextPane21 = new javax.swing.JTextPane();
+        TpRgCivil = new javax.swing.JTextPane();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jScrollPane22 = new javax.swing.JScrollPane();
-        jTextPane22 = new javax.swing.JTextPane();
+        TpReservista = new javax.swing.JTextPane();
         jLabel21 = new javax.swing.JLabel();
         jScrollPane23 = new javax.swing.JScrollPane();
-        jTextPane23 = new javax.swing.JTextPane();
+        TpPisPasep = new javax.swing.JTextPane();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jScrollPane25 = new javax.swing.JScrollPane();
-        jTextPane25 = new javax.swing.JTextPane();
+        TpCorPele = new javax.swing.JTextPane();
         jLabel24 = new javax.swing.JLabel();
         jScrollPane26 = new javax.swing.JScrollPane();
-        jTextPane26 = new javax.swing.JTextPane();
+        TpCorOlhos = new javax.swing.JTextPane();
         jLabel25 = new javax.swing.JLabel();
         jScrollPane27 = new javax.swing.JScrollPane();
-        jTextPane27 = new javax.swing.JTextPane();
+        TpCorCbelos = new javax.swing.JTextPane();
         jScrollPane28 = new javax.swing.JScrollPane();
-        jTextPane28 = new javax.swing.JTextPane();
-        jPanel1 = new javax.swing.JPanel();
+        TpAltura = new javax.swing.JTextPane();
+        JpFoto = new javax.swing.JPanel();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel26 = new javax.swing.JLabel();
         jScrollPane24 = new javax.swing.JScrollPane();
         TpGrauInstrucao = new javax.swing.JTextPane();
         jScrollPane29 = new javax.swing.JScrollPane();
-        jTextPane29 = new javax.swing.JTextPane();
+        TpEmail = new javax.swing.JTextPane();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jScrollPane30 = new javax.swing.JScrollPane();
-        jTextPane30 = new javax.swing.JTextPane();
+        TpTelefone1 = new javax.swing.JTextPane();
         jLabel29 = new javax.swing.JLabel();
         jScrollPane31 = new javax.swing.JScrollPane();
-        jTextPane31 = new javax.swing.JTextPane();
+        TpTelefone2 = new javax.swing.JTextPane();
+        btnConfirmarcadastro = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
 
         jLabel1.setText("Nome:");
 
-        TpNomePolicial.setEditable(false);
-        jScrollPane1.setViewportView(TpNomePolicial);
+        TpNome.setEditable(false);
+        TpNome.setToolTipText("");
+        jScrollPane1.setViewportView(TpNome);
 
         jLabel2.setText("Nome de guerra:");
 
@@ -139,8 +139,8 @@ public class JIFDetalhesPolicial extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Estado civil:");
 
-        TpEstadoCivil.setEditable(false);
-        jScrollPane5.setViewportView(TpEstadoCivil);
+        JpEstadoCivil.setEditable(false);
+        jScrollPane5.setViewportView(JpEstadoCivil);
 
         TpNaturalidade.setEditable(false);
         jScrollPane6.setViewportView(TpNaturalidade);
@@ -171,90 +171,85 @@ public class JIFDetalhesPolicial extends javax.swing.JInternalFrame {
         TpNomeGuerra.setEditable(false);
         jScrollPane11.setViewportView(TpNomeGuerra);
 
-        jLabel13.setText("Graduação:");
+        TpDataInclusao.setEditable(false);
+        jScrollPane13.setViewportView(TpDataInclusao);
 
-        jTextPane12.setEditable(false);
-        jScrollPane12.setViewportView(jTextPane12);
+        TpDataExclusao.setEditable(false);
+        jScrollPane14.setViewportView(TpDataExclusao);
 
-        jTextPane13.setEditable(false);
-        jScrollPane13.setViewportView(jTextPane13);
+        TpProcedencia.setEditable(false);
+        jScrollPane15.setViewportView(TpProcedencia);
 
-        jTextPane14.setEditable(false);
-        jScrollPane14.setViewportView(jTextPane14);
-
-        jTextPane15.setEditable(false);
-        jScrollPane15.setViewportView(jTextPane15);
-
-        jTextPane16.setEditable(false);
-        jScrollPane16.setViewportView(jTextPane16);
+        TpEspecialidade.setEditable(false);
+        jScrollPane16.setViewportView(TpEspecialidade);
 
         jLabel14.setText("Especialidade:");
 
         jLabel15.setText("Matrícula:");
 
-        jTextPane17.setEditable(false);
-        jScrollPane17.setViewportView(jTextPane17);
+        TpMatricula.setEditable(false);
+        jScrollPane17.setViewportView(TpMatricula);
 
         jLabel16.setText("Número:");
 
-        jTextPane18.setEditable(false);
-        jScrollPane18.setViewportView(jTextPane18);
+        TpNumero.setEditable(false);
+        jScrollPane18.setViewportView(TpNumero);
 
         jLabel17.setText("Rg PM:");
 
-        jTextPane19.setEditable(false);
-        jScrollPane19.setViewportView(jTextPane19);
+        TpRgPm.setEditable(false);
+        jScrollPane19.setViewportView(TpRgPm);
 
         jLabel18.setText("CPF:");
 
-        jTextPane20.setEditable(false);
-        jScrollPane20.setViewportView(jTextPane20);
+        TpCpf.setEditable(false);
+        jScrollPane20.setViewportView(TpCpf);
 
-        jTextPane21.setEditable(false);
-        jScrollPane21.setViewportView(jTextPane21);
+        TpRgCivil.setEditable(false);
+        jScrollPane21.setViewportView(TpRgCivil);
 
         jLabel19.setText("RG Civil:");
 
         jLabel20.setText("Reservista:");
 
-        jTextPane22.setEditable(false);
-        jScrollPane22.setViewportView(jTextPane22);
+        TpReservista.setEditable(false);
+        jScrollPane22.setViewportView(TpReservista);
 
         jLabel21.setText("Pis/Pasep:");
 
-        jTextPane23.setEditable(false);
-        jScrollPane23.setViewportView(jTextPane23);
+        TpPisPasep.setEditable(false);
+        jScrollPane23.setViewportView(TpPisPasep);
 
         jLabel22.setText("Altura:");
 
         jLabel23.setText("Cor da pele:");
 
-        jTextPane25.setEditable(false);
-        jScrollPane25.setViewportView(jTextPane25);
+        TpCorPele.setEditable(false);
+        jScrollPane25.setViewportView(TpCorPele);
 
         jLabel24.setText("Cor dos olhos:");
 
-        jTextPane26.setEditable(false);
-        jScrollPane26.setViewportView(jTextPane26);
+        TpCorOlhos.setEditable(false);
+        jScrollPane26.setViewportView(TpCorOlhos);
 
         jLabel25.setText("Cor dos cabelos:");
 
-        jTextPane27.setEditable(false);
-        jScrollPane27.setViewportView(jTextPane27);
+        TpCorCbelos.setEditable(false);
+        jScrollPane27.setViewportView(TpCorCbelos);
 
-        jTextPane28.setEditable(false);
-        jScrollPane28.setViewportView(jTextPane28);
+        TpAltura.setEditable(false);
+        jScrollPane28.setViewportView(TpAltura);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        JpFoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout JpFotoLayout = new javax.swing.GroupLayout(JpFoto);
+        JpFoto.setLayout(JpFotoLayout);
+        JpFotoLayout.setHorizontalGroup(
+            JpFotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 136, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        JpFotoLayout.setVerticalGroup(
+            JpFotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 172, Short.MAX_VALUE)
         );
 
@@ -265,20 +260,24 @@ public class JIFDetalhesPolicial extends javax.swing.JInternalFrame {
         TpGrauInstrucao.setEditable(false);
         jScrollPane24.setViewportView(TpGrauInstrucao);
 
-        jTextPane29.setEditable(false);
-        jScrollPane29.setViewportView(jTextPane29);
+        TpEmail.setEditable(false);
+        jScrollPane29.setViewportView(TpEmail);
 
         jLabel27.setText("Email:");
 
         jLabel28.setText("Telefone 1:");
 
-        jTextPane30.setEditable(false);
-        jScrollPane30.setViewportView(jTextPane30);
+        TpTelefone1.setEditable(false);
+        jScrollPane30.setViewportView(TpTelefone1);
 
         jLabel29.setText("Telefone 2:");
 
-        jTextPane31.setEditable(false);
-        jScrollPane31.setViewportView(jTextPane31);
+        TpTelefone2.setEditable(false);
+        jScrollPane31.setViewportView(TpTelefone2);
+
+        btnConfirmarcadastro.setText("Confirmar cadastro");
+
+        btnCancelar.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -334,10 +333,6 @@ public class JIFDetalhesPolicial extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel12))
@@ -374,72 +369,77 @@ public class JIFDetalhesPolicial extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(55, 55, 55)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel20)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel19)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jScrollPane21, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(30, 30, 30)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel18)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel21)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jScrollPane23, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jSeparator3))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnCancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnConfirmarcadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
+                                    .addGap(55, 55, 55)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel24)
-                                        .addComponent(jLabel23))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jScrollPane25)
-                                        .addComponent(jScrollPane26, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(36, 36, 36)
-                                    .addComponent(jLabel22)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jScrollPane28, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel20)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel19)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jScrollPane21, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(30, 30, 30)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel18)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel21)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jScrollPane23, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jSeparator3))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel25)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane27, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel28)
-                                    .addComponent(jLabel27))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane29)
-                                    .addComponent(jScrollPane30, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel29)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane31, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jLabel24)
+                                                .addComponent(jLabel23))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(jScrollPane25)
+                                                .addComponent(jScrollPane26, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(36, 36, 36)
+                                            .addComponent(jLabel22)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jScrollPane28, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel25)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jScrollPane27, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel28)
+                                            .addComponent(jLabel27))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jScrollPane29)
+                                            .addComponent(jScrollPane30, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel29)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jScrollPane31, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(10, 10, 10)
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(JpFoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(42, 42, 42))
         );
         layout.setVerticalGroup(
@@ -505,8 +505,8 @@ public class JIFDetalhesPolicial extends javax.swing.JInternalFrame {
                             .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel13)
-                            .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel17)
+                            .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -520,10 +520,6 @@ public class JIFDetalhesPolicial extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel16)))
                         .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel10)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel17)
-                    .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -571,14 +567,13 @@ public class JIFDetalhesPolicial extends javax.swing.JInternalFrame {
                                     .addComponent(jScrollPane30, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(jLabel24))
                             .addComponent(jScrollPane26, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane31, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(8, 8, 8)
-                                .addComponent(jLabel29))
-                            .addComponent(jScrollPane31, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel24)
+                                    .addComponent(jLabel29))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -588,8 +583,12 @@ public class JIFDetalhesPolicial extends javax.swing.JInternalFrame {
                     .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(13, 13, 13)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(JpFoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnConfirmarcadastro)
+                    .addComponent(btnCancelar))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -597,11 +596,41 @@ public class JIFDetalhesPolicial extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify                     
+    private javax.swing.JTextPane JpEstadoCivil;
+    private javax.swing.JPanel JpFoto;
+    private javax.swing.JTextPane TpAltura;
+    private javax.swing.JTextPane TpCorCbelos;
+    private javax.swing.JTextPane TpCorOlhos;
+    private javax.swing.JTextPane TpCorPele;
+    private javax.swing.JTextPane TpCpf;
+    private javax.swing.JTextPane TpDataExclusao;
+    private javax.swing.JTextPane TpDataInclusao;
+    private javax.swing.JTextPane TpDataNascimento;
+    private javax.swing.JTextPane TpEmail;
+    private javax.swing.JTextPane TpEspecialidade;
+    private javax.swing.JTextPane TpGraduacao;
+    private javax.swing.JTextPane TpGrauInstrucao;
+    private javax.swing.JTextPane TpMatricula;
+    private javax.swing.JTextPane TpNaturalidade;
+    private javax.swing.JTextPane TpNome;
+    private javax.swing.JTextPane TpNomeGuerra;
+    private javax.swing.JTextPane TpNomeMae;
+    private javax.swing.JTextPane TpNomePai;
+    private javax.swing.JTextPane TpNumero;
+    private javax.swing.JTextPane TpPisPasep;
+    private javax.swing.JTextPane TpProcedencia;
+    private javax.swing.JTextPane TpReservista;
+    private javax.swing.JTextPane TpRgCivil;
+    private javax.swing.JTextPane TpRgPm;
+    private javax.swing.JTextPane TpTelefone1;
+    private javax.swing.JTextPane TpTelefone2;
+    private javax.swing.JTextPane TpTipoSangue;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnConfirmarcadastro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -626,11 +655,9 @@ public class JIFDetalhesPolicial extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
-    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
@@ -660,34 +687,7 @@ public class JIFDetalhesPolicial extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTextPane TpNomePolicial;
-    private javax.swing.JTextPane TpGraduacao;
-    private javax.swing.JTextPane TpNomeGuerra;
-    private javax.swing.JTextPane jTextPane12;
-    private javax.swing.JTextPane jTextPane13;
-    private javax.swing.JTextPane jTextPane14;
-    private javax.swing.JTextPane jTextPane15;
-    private javax.swing.JTextPane jTextPane16;
-    private javax.swing.JTextPane jTextPane17;
-    private javax.swing.JTextPane jTextPane18;
-    private javax.swing.JTextPane jTextPane19;
-    private javax.swing.JTextPane jTextPane20;
-    private javax.swing.JTextPane jTextPane21;
-    private javax.swing.JTextPane jTextPane22;
-    private javax.swing.JTextPane jTextPane23;
-    private javax.swing.JTextPane TpGrauInstrucao;
-    private javax.swing.JTextPane jTextPane25;
-    private javax.swing.JTextPane jTextPane26;
-    private javax.swing.JTextPane jTextPane27;
-    private javax.swing.JTextPane jTextPane28;
-    private javax.swing.JTextPane jTextPane29;
-    private javax.swing.JTextPane TpNomePai;
-    private javax.swing.JTextPane jTextPane30;
-    private javax.swing.JTextPane jTextPane31;
-    private javax.swing.JTextPane TpNomeMae;
-    private javax.swing.JTextPane TpEstadoCivil;
-    private javax.swing.JTextPane TpNaturalidade;
-    private javax.swing.JTextPane TpTipoSangue;
-    private javax.swing.JTextPane TpDataNascimento;
     // End of variables declaration                   
 }
+
+

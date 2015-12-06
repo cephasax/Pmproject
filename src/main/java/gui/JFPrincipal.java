@@ -7,7 +7,14 @@
  */
 package gui;
 
-import controler.Service;
+import javax.swing.UIManager;
+
+import java.awt.event.ActionListener;
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 /**
  *
@@ -22,7 +29,8 @@ public class JFPrincipal extends javax.swing.JFrame {
      * Creates new form JFPrincipal
      */
     private JFPrincipal() {
-        initComponents();
+    	
+    	initComponents();
         setDefaultCloseOperation(EXIT_ON_CLOSE);  
         pack();
         setVisible(true);
@@ -51,6 +59,15 @@ public class JFPrincipal extends javax.swing.JFrame {
         jMenuMain = new javax.swing.JMenu();
         jMiListarPoliciais = new javax.swing.JMenuItem();
         jMiCadastrarPoliciais = new javax.swing.JMenuItem();
+        jMiCadastrarPoliciais.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		JIFCadastrarPolicial jcp = new JIFCadastrarPolicial();
+                jdesktopMain.add(jcp);
+                jcp.setResizable(true);
+                jcp.pack();
+                jcp.setVisible(true);
+        	}
+        });
         jMiCadastrarDocumento = new javax.swing.JMenuItem();
         jMiCadastrarInformacao = new javax.swing.JMenuItem();
         jMenuRelatorios = new javax.swing.JMenu();
@@ -68,29 +85,25 @@ public class JFPrincipal extends javax.swing.JFrame {
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
+        	jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jPanel1Layout.createSequentialGroup()
+        			.addComponent(jLabel1, GroupLayout.PREFERRED_SIZE, 830, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        	jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jPanel1Layout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(jLabel1)
+        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        javax.swing.GroupLayout jdesktopMainLayout = new javax.swing.GroupLayout(jdesktopMain);
-        jdesktopMain.setLayout(jdesktopMainLayout);
-        jdesktopMainLayout.setHorizontalGroup(
-            jdesktopMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jdesktopMainLayout.setVerticalGroup(
-            jdesktopMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 386, Short.MAX_VALUE)
-        );
+        jPanel1.setLayout(jPanel1Layout);
+        
+        //////////////////////////////////////
+        
+        
+        getContentPane().add(jdesktopMain, BorderLayout.CENTER);
 
         jMenuMain.setText("Menu");
 
@@ -144,29 +157,34 @@ public class JFPrincipal extends javax.swing.JFrame {
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jdesktopMain)
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        				.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, 822, Short.MAX_VALUE)
+        				.addGroup(layout.createSequentialGroup()
+        					.addGap(10)
+        					.addComponent(jdesktopMain, GroupLayout.PREFERRED_SIZE, 832, GroupLayout.PREFERRED_SIZE)))
+        			.addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jdesktopMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addComponent(jdesktopMain, GroupLayout.PREFERRED_SIZE, 600, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+        getContentPane().setLayout(layout);
+        jdesktopMain.setLayout(new BorderLayout(0, 0));
 
         pack();
     }// </editor-fold>                        
 
     private void jMiListarPoliciaisActionPerformed(java.awt.event.ActionEvent evt) {                                                   
             // TODO add your handling code here:
-    		JIFListarPoliciais jlp = Service.getInstanceJifListarPoliciais();
+    		JIFListarPoliciais jlp = new JIFListarPoliciais();
             jdesktopMain.add(jlp);
-            jlp.setResizable(true);
             jlp.pack();
             jlp.setVisible(true);
     }                                                  

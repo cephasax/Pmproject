@@ -10,6 +10,13 @@ import javax.swing.table.DefaultTableModel;
 
 import dao.PolicialDao;
 import model.Policial;
+import javax.swing.JButton;
+import javax.swing.JInternalFrame;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  *
@@ -21,19 +28,14 @@ public class JIFListarPoliciais extends javax.swing.JInternalFrame {
 	private static JIFListarPoliciais jif;
 	private static tmListaPoliciais modelo;
 	public PolicialDao pdao = new PolicialDao();
-	
-	public static JIFListarPoliciais getInstancia(){
-		if(jif == null){
-			jif = new JIFListarPoliciais();
-		}
-		return jif;
-	}
     
 	/**
      * Creates new form JIFListarPolicial
      */
-    private JIFListarPoliciais() {
+    public JIFListarPoliciais() {
+		setClosable(true);
         initComponents();
+        refreshPopulate();
     }
 
     /**
@@ -50,8 +52,9 @@ public class JIFListarPoliciais extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         btnExcluir = new javax.swing.JButton();
+        btnExcluir.setEnabled(false);
         btnEditar = new javax.swing.JButton();
-        btnCadastrarPolicial = new javax.swing.JButton();
+        btnEditar.setEnabled(false);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Listar Policial");
@@ -73,7 +76,7 @@ public class JIFListarPoliciais extends javax.swing.JInternalFrame {
         jTable1.setBackground(new java.awt.Color(244, 242, 244));
         
         pdao = new PolicialDao();     
-        modelo = new tmListaPoliciais(pdao.listar());
+        modelo = new tmListaPoliciais(/*pdao.listar()*/);
         jTable1.setModel(modelo);
       
         
@@ -90,61 +93,45 @@ public class JIFListarPoliciais extends javax.swing.JInternalFrame {
 
         btnEditar.setText("Editar");
 
-        btnCadastrarPolicial.setText("Cadastrar Policial");
-        btnCadastrarPolicial.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarPolicialActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnExcluir)
-                .addGap(18, 18, 18)
-                .addComponent(btnEditar)
-                .addGap(18, 18, 18)
-                .addComponent(btnCadastrarPolicial)
-                .addContainerGap())
+        	layout.createParallelGroup(Alignment.TRAILING)
+        		.addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
+        		.addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
+        		.addGroup(layout.createSequentialGroup()
+        			.addContainerGap(484, Short.MAX_VALUE)
+        			.addComponent(btnExcluir)
+        			.addGap(18)
+        			.addComponent(btnEditar)
+        			.addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnExcluir)
-                    .addComponent(btnEditar)
-                    .addComponent(btnCadastrarPolicial))
-                .addGap(0, 19, Short.MAX_VALUE))
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 204, GroupLayout.PREFERRED_SIZE)
+        			.addGap(18)
+        			.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(btnExcluir)
+        				.addComponent(btnEditar))
+        			.addContainerGap(31, Short.MAX_VALUE))
         );
+        getContentPane().setLayout(layout);
 
         pack();
     }// </editor-fold>                        
-
-    private void btnCadastrarPolicialActionPerformed(java.awt.event.ActionEvent evt) {                                                     
-        // TODO add your handling code here:
-    }                                                   
     
-    private void refreshPopulate(){
+    public void refreshPopulate(){
     	modelo.getLinhas().clear();
-    	pdao.
+    	modelo.setLinhas(pdao.listar());
     }
-    
-    // Variables declaration - do not modify                     
-    private javax.swing.JButton btnCadastrarPolicial;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    // End of variables declaration                   
+    
+    
 }
