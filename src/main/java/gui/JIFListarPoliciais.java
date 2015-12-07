@@ -99,7 +99,7 @@ public class JIFListarPoliciais extends javax.swing.JInternalFrame {
         		
         		Point p = e.getPoint();
         		if (e.getClickCount() == 2) {
-        			System.out.println(linhaSelecionada);
+        			
         			
         			Container container = SwingUtilities.getAncestorOfClass(JDesktopPane.class, (Component)e.getSource());
 
