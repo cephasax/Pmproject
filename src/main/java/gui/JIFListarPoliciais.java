@@ -4,19 +4,25 @@
  * and open the template in the editor.
  */
 package gui;
-import java.util.List;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-import javax.swing.table.DefaultTableModel;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JDesktopPane;
+import javax.swing.JLabel;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingUtilities;
 
+import controler.Service;
 import dao.PolicialDao;
 import model.Policial;
-import javax.swing.JButton;
-import javax.swing.JInternalFrame;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.GroupLayout;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 /**
  *
@@ -25,9 +31,10 @@ import java.awt.event.ActionEvent;
 public class JIFListarPoliciais extends javax.swing.JInternalFrame {
 
 	
-	private static JIFListarPoliciais jif;
 	private static tmListaPoliciais modelo;
 	public PolicialDao pdao = new PolicialDao();
+    private Service service = new Service();
+    private int linhaSelecionada = -1;
     
 	/**
      * Creates new form JIFListarPolicial
@@ -52,9 +59,16 @@ public class JIFListarPoliciais extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         btnExcluir = new javax.swing.JButton();
-        btnExcluir.setEnabled(false);
-        btnEditar = new javax.swing.JButton();
-        btnEditar.setEnabled(false);
+        btnExcluir.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		if(linhaSelecionada != -1){
+        			Policial policial = modelo.getPolicial(linhaSelecionada);
+        			service.excluirPolicial(policial);
+        			refreshPopulate();
+        			jTable1.repaint();
+        		}        	
+        	}
+        });
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Listar Policial");
@@ -75,12 +89,42 @@ public class JIFListarPoliciais extends javax.swing.JInternalFrame {
 
         jTable1.setBackground(new java.awt.Color(244, 242, 244));
         
-        pdao = new PolicialDao();     
         modelo = new tmListaPoliciais(/*pdao.listar()*/);
         jTable1.setModel(modelo);
-      
         
-        jTable1.setColumnSelectionAllowed(true);
+        jTable1.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		linhaSelecionada = jTable1.getSelectedRow();
+        		
+        		Point p = e.getPoint();
+        		if (e.getClickCount() == 2) {
+        			System.out.println(linhaSelecionada);
+        			
+        			Container container = SwingUtilities.getAncestorOfClass(JDesktopPane.class, (Component)e.getSource());
+
+                    if (container != null)
+                    {
+                        JDesktopPane desktopPane = getDesktopPane();
+                        JIFDetalhesPolicial jdp = new JIFDetalhesPolicial(modelo.getPolicial(linhaSelecionada));
+                        desktopPane.add(jdp);//add f1 to desktop pane
+                        jdp.setResizable(true);
+            			jdp.pack();
+            			jdp.setVisible(true);
+                        ;
+                       /* Dimension desktopSize = getDesktopPane().getSize();
+                        f1.setSize(desktopSize);
+                        f1.setPreferredSize(desktopSize);
+                        MainClass.dontmoveframe();*/
+                    } 
+        			
+        			
+        			JIFDetalhesPolicial jdp = new JIFDetalhesPolicial(modelo.getPolicial(linhaSelecionada));
+        			
+        		}
+        	}
+        });
+        
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setMinWidth(0);
@@ -90,32 +134,32 @@ public class JIFListarPoliciais extends javax.swing.JInternalFrame {
         jTable1.setVisible(true);
 
         btnExcluir.setText("Excluir");
-
-        btnEditar.setText("Editar");
+        
+        JLabel lblCliqueDuasVezes = new JLabel("Clique duas vezes na linha para ver os detalhes do policial ou editar suas informa\u00E7\u00F5es");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         layout.setHorizontalGroup(
         	layout.createParallelGroup(Alignment.TRAILING)
-        		.addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
-        		.addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
+        		.addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
         		.addGroup(layout.createSequentialGroup()
-        			.addContainerGap(484, Short.MAX_VALUE)
+        			.addContainerGap()
+        			.addComponent(lblCliqueDuasVezes)
+        			.addPreferredGap(ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
         			.addComponent(btnExcluir)
-        			.addGap(18)
-        			.addComponent(btnEditar)
         			.addContainerGap())
+        		.addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
         	layout.createParallelGroup(Alignment.LEADING)
         		.addGroup(layout.createSequentialGroup()
         			.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
         			.addPreferredGap(ComponentPlacement.RELATED)
-        			.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 204, GroupLayout.PREFERRED_SIZE)
-        			.addGap(18)
-        			.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        			.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 224, GroupLayout.PREFERRED_SIZE)
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
         				.addComponent(btnExcluir)
-        				.addComponent(btnEditar))
-        			.addContainerGap(31, Short.MAX_VALUE))
+        				.addComponent(lblCliqueDuasVezes))
+        			.addContainerGap(26, Short.MAX_VALUE))
         );
         getContentPane().setLayout(layout);
 
@@ -126,12 +170,9 @@ public class JIFListarPoliciais extends javax.swing.JInternalFrame {
     	modelo.getLinhas().clear();
     	modelo.setLinhas(pdao.listar());
     }
-    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    
-    
 }

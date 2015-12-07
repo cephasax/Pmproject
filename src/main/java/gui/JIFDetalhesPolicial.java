@@ -5,6 +5,15 @@
  */
 package gui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+
+import controler.Service;
+import model.Policial;
+
 /**
  *
  * @author Cephas
@@ -14,8 +23,13 @@ public class JIFDetalhesPolicial extends javax.swing.JInternalFrame {
     /**
      * Creates new form JIFDetalhesPolicial
      */
-    public JIFDetalhesPolicial() {
-        initComponents();
+	
+	private Policial policial = new Policial();
+	
+    public JIFDetalhesPolicial(Policial policial) {
+    	setClosable(true);
+        this.policial = policial;
+    	initComponents();
     }
 
     /**
@@ -28,129 +42,121 @@ public class JIFDetalhesPolicial extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TpNome = new javax.swing.JTextPane();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        TpNomePai = new javax.swing.JTextPane();
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        TpNomeMae = new javax.swing.JTextPane();
         jLabel5 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        JpEstadoCivil = new javax.swing.JTextPane();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        TpNaturalidade = new javax.swing.JTextPane();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        TpTipoSangue = new javax.swing.JTextPane();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        TpDataNascimento = new javax.swing.JTextPane();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel12 = new javax.swing.JLabel();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        TpGraduacao = new javax.swing.JTextPane();
-        jScrollPane11 = new javax.swing.JScrollPane();
-        TpNomeGuerra = new javax.swing.JTextPane();
-        jScrollPane13 = new javax.swing.JScrollPane();
-        TpDataInclusao = new javax.swing.JTextPane();
-        jScrollPane14 = new javax.swing.JScrollPane();
-        TpDataExclusao = new javax.swing.JTextPane();
-        jScrollPane15 = new javax.swing.JScrollPane();
-        TpProcedencia = new javax.swing.JTextPane();
-        jScrollPane16 = new javax.swing.JScrollPane();
-        TpEspecialidade = new javax.swing.JTextPane();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jScrollPane17 = new javax.swing.JScrollPane();
-        TpMatricula = new javax.swing.JTextPane();
         jLabel16 = new javax.swing.JLabel();
-        jScrollPane18 = new javax.swing.JScrollPane();
-        TpNumero = new javax.swing.JTextPane();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel17 = new javax.swing.JLabel();
-        jScrollPane19 = new javax.swing.JScrollPane();
-        TpRgPm = new javax.swing.JTextPane();
         jLabel18 = new javax.swing.JLabel();
-        jScrollPane20 = new javax.swing.JScrollPane();
-        TpCpf = new javax.swing.JTextPane();
-        jScrollPane21 = new javax.swing.JScrollPane();
-        TpRgCivil = new javax.swing.JTextPane();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jScrollPane22 = new javax.swing.JScrollPane();
-        TpReservista = new javax.swing.JTextPane();
         jLabel21 = new javax.swing.JLabel();
-        jScrollPane23 = new javax.swing.JScrollPane();
-        TpPisPasep = new javax.swing.JTextPane();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jScrollPane25 = new javax.swing.JScrollPane();
-        TpCorPele = new javax.swing.JTextPane();
         jLabel24 = new javax.swing.JLabel();
-        jScrollPane26 = new javax.swing.JScrollPane();
-        TpCorOlhos = new javax.swing.JTextPane();
         jLabel25 = new javax.swing.JLabel();
-        jScrollPane27 = new javax.swing.JScrollPane();
-        TpCorCbelos = new javax.swing.JTextPane();
-        jScrollPane28 = new javax.swing.JScrollPane();
-        TpAltura = new javax.swing.JTextPane();
-        JpFoto = new javax.swing.JPanel();
-        jSeparator4 = new javax.swing.JSeparator();
         jLabel26 = new javax.swing.JLabel();
-        jScrollPane24 = new javax.swing.JScrollPane();
-        TpGrauInstrucao = new javax.swing.JTextPane();
-        jScrollPane29 = new javax.swing.JScrollPane();
-        TpEmail = new javax.swing.JTextPane();
         jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jScrollPane30 = new javax.swing.JScrollPane();
-        TpTelefone1 = new javax.swing.JTextPane();
-        jLabel29 = new javax.swing.JLabel();
-        jScrollPane31 = new javax.swing.JScrollPane();
-        TpTelefone2 = new javax.swing.JTextPane();
-        btnConfirmarcadastro = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
+        btnConfirmar = new javax.swing.JButton();
+        btnConfirmar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		        		
+				policial.setAltura(Float.valueOf(TpAltura.getText()));
+				policial.setCorCabelos(TpCorCbelos.getText());
+				policial.setCorOlhos(TpCorOlhos.getText());
+				policial.setCor(TpCorPele.getText());
+				policial.setCpf(TpCpf.getText());
+				policial.setDataNascimento(TpDataNascimento.getText());		
+				policial.setDataExclusao(TpDataExclusao.getText());
+				policial.setDataInclusao(TpDataInclusao.getText());
+				policial.setEmail(TpEmail.getText());
+				policial.setEspecialidade(TpEspecialidade.getText());
+				policial.setGraduacao(TpGraduacao.getText());
+				policial.setGrauInstrucao(TpGrauInstrucao.getText());
+				policial.setMatricula(TpMatricula.getText());
+				policial.setNaturalidade(TpNaturalidade.getText());
+				policial.setNome(TpNome.getText());
+				policial.setNomeGuerra(TpNomeGuerra.getText());
+				policial.setNomeMae(TpNomeMae.getText());
+				policial.setNomePai(TpNomePai.getText());
+				policial.setNumero(Integer.valueOf(TpNumero.getText()));
+				policial.setPisPasep(TpPisPasep.getText());
+				policial.setProcedencia(TpProcedencia.getText());
+				policial.setReservista(TpReservista.getText());
+				policial.setRgCivil(TpRgCivil.getText());
+				policial.setRgPm(TpRgPm.getText());
+				policial.setTipoSangue(TpTipoSangue.getText());
+				policial.setEstadoCivil(TpEstadoCivil.getText());
+				
+				Service service = new Service();
+				service.atualizarPolicial(policial);
+        		
+        		
+        	}
+        });
+        btnConfirmar.setEnabled(false);
+        
+        
+        btnEditar = new javax.swing.JButton();
+        btnEditar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		TpAltura.setEditable(true);
+        		TpCorCbelos.setEditable(true);
+        		TpCorOlhos.setEditable(true);
+        		TpCorPele.setEditable(true);
+        		TpCpf.setEditable(true);
+        		TpDataNascimento.setEditable(true);
+        		TpDataExclusao.setEditable(true);
+        		TpDataInclusao.setEditable(true);
+        		TpEmail.setEditable(true);
+        		TpEspecialidade.setEditable(true);
+        		TpGraduacao.setEditable(true);
+        		TpGrauInstrucao.setEditable(true);
+        		TpMatricula.setEditable(true);
+        		TpNaturalidade.setEditable(true);
+        		TpNome.setEditable(true);
+        		TpNomeGuerra.setEditable(true);
+        		TpNomeMae.setEditable(true);
+        		TpNomePai.setEditable(true);
+        		TpNumero.setEditable(true);
+        		TpPisPasep.setEditable(true);
+        		TpProcedencia.setEditable(true);
+        		TpReservista.setEditable(true);
+        		TpRgCivil.setEditable(true);
+        		TpRgPm.setEditable(true);
+        		TpTipoSangue.setEditable(true);
+        		TpEstadoCivil.setEditable(true);
+
+        		btnConfirmar.setEnabled(true);
+        	}
+        });
 
         jLabel1.setText("Nome:");
-
-        TpNome.setEditable(false);
-        TpNome.setToolTipText("");
-        jScrollPane1.setViewportView(TpNome);
 
         jLabel2.setText("Nome de guerra:");
 
         jLabel3.setText("Nome do pai:");
 
-        TpNomePai.setEditable(false);
-        jScrollPane3.setViewportView(TpNomePai);
-
         jLabel4.setText("Nome da mãe:");
 
-        TpNomeMae.setEditable(false);
-        jScrollPane4.setViewportView(TpNomeMae);
-
         jLabel5.setText("Estado civil:");
-
-        JpEstadoCivil.setEditable(false);
-        jScrollPane5.setViewportView(JpEstadoCivil);
-
-        TpNaturalidade.setEditable(false);
-        jScrollPane6.setViewportView(TpNaturalidade);
 
         jLabel6.setText("Naturalidade:");
 
         jLabel7.setText("Tipo de sangue:");
-
-        TpTipoSangue.setEditable(false);
-        jScrollPane7.setViewportView(TpTipoSangue);
 
         jLabel8.setText("Data de nascimento:");
 
@@ -160,444 +166,441 @@ public class JIFDetalhesPolicial extends javax.swing.JInternalFrame {
 
         jLabel11.setText("Procedência:");
 
-        TpDataNascimento.setEditable(false);
-        jScrollPane9.setViewportView(TpDataNascimento);
-
         jLabel12.setText("Graduação:");
-
-        TpGraduacao.setEditable(false);
-        jScrollPane10.setViewportView(TpGraduacao);
-
-        TpNomeGuerra.setEditable(false);
-        jScrollPane11.setViewportView(TpNomeGuerra);
-
-        TpDataInclusao.setEditable(false);
-        jScrollPane13.setViewportView(TpDataInclusao);
-
-        TpDataExclusao.setEditable(false);
-        jScrollPane14.setViewportView(TpDataExclusao);
-
-        TpProcedencia.setEditable(false);
-        jScrollPane15.setViewportView(TpProcedencia);
-
-        TpEspecialidade.setEditable(false);
-        jScrollPane16.setViewportView(TpEspecialidade);
 
         jLabel14.setText("Especialidade:");
 
         jLabel15.setText("Matrícula:");
 
-        TpMatricula.setEditable(false);
-        jScrollPane17.setViewportView(TpMatricula);
-
         jLabel16.setText("Número:");
-
-        TpNumero.setEditable(false);
-        jScrollPane18.setViewportView(TpNumero);
 
         jLabel17.setText("Rg PM:");
 
-        TpRgPm.setEditable(false);
-        jScrollPane19.setViewportView(TpRgPm);
-
         jLabel18.setText("CPF:");
-
-        TpCpf.setEditable(false);
-        jScrollPane20.setViewportView(TpCpf);
-
-        TpRgCivil.setEditable(false);
-        jScrollPane21.setViewportView(TpRgCivil);
 
         jLabel19.setText("RG Civil:");
 
         jLabel20.setText("Reservista:");
 
-        TpReservista.setEditable(false);
-        jScrollPane22.setViewportView(TpReservista);
-
         jLabel21.setText("Pis/Pasep:");
-
-        TpPisPasep.setEditable(false);
-        jScrollPane23.setViewportView(TpPisPasep);
 
         jLabel22.setText("Altura:");
 
         jLabel23.setText("Cor da pele:");
 
-        TpCorPele.setEditable(false);
-        jScrollPane25.setViewportView(TpCorPele);
-
         jLabel24.setText("Cor dos olhos:");
-
-        TpCorOlhos.setEditable(false);
-        jScrollPane26.setViewportView(TpCorOlhos);
 
         jLabel25.setText("Cor dos cabelos:");
 
-        TpCorCbelos.setEditable(false);
-        jScrollPane27.setViewportView(TpCorCbelos);
-
-        TpAltura.setEditable(false);
-        jScrollPane28.setViewportView(TpAltura);
-
-        JpFoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout JpFotoLayout = new javax.swing.GroupLayout(JpFoto);
-        JpFoto.setLayout(JpFotoLayout);
-        JpFotoLayout.setHorizontalGroup(
-            JpFotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 136, Short.MAX_VALUE)
-        );
-        JpFotoLayout.setVerticalGroup(
-            JpFotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 172, Short.MAX_VALUE)
-        );
-
-        jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
         jLabel26.setText("Grau de instrução:");
-
-        TpGrauInstrucao.setEditable(false);
-        jScrollPane24.setViewportView(TpGrauInstrucao);
-
-        TpEmail.setEditable(false);
-        jScrollPane29.setViewportView(TpEmail);
 
         jLabel27.setText("Email:");
 
-        jLabel28.setText("Telefone 1:");
+        btnConfirmar.setText("Confirmar");
 
-        TpTelefone1.setEditable(false);
-        jScrollPane30.setViewportView(TpTelefone1);
-
-        jLabel29.setText("Telefone 2:");
-
-        TpTelefone2.setEditable(false);
-        jScrollPane31.setViewportView(TpTelefone2);
-
-        btnConfirmarcadastro.setText("Confirmar cadastro");
-
-        btnCancelar.setText("Cancelar");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel1))
-                        .addGap(7, 7, 7)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4)
-                            .addComponent(jScrollPane1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel3))
-                        .addGap(4, 4, 4)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)
-                                .addComponent(jLabel26)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane24)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(49, 49, 49))
-            .addComponent(jSeparator2)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel12))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane11)
-                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addGap(1, 1, 1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel15))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                    .addComponent(jScrollPane16)
-                    .addComponent(jScrollPane17))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnConfirmarcadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(55, 55, 55)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel20)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel19)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jScrollPane21, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(30, 30, 30)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel18)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel21)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jScrollPane23, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addComponent(jSeparator3))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jLabel24)
-                                                .addComponent(jLabel23))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jScrollPane25)
-                                                .addComponent(jScrollPane26, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(36, 36, 36)
-                                            .addComponent(jLabel22)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jScrollPane28, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel25)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jScrollPane27, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel28)
-                                            .addComponent(jLabel27))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jScrollPane29)
-                                            .addComponent(jScrollPane30, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel29)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jScrollPane31, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(10, 10, 10)
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
-                        .addComponent(JpFoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(42, 42, 42))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(jLabel4))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(jLabel3))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8)
-                            .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel26))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel12)
-                                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jScrollPane16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel11)))
-                            .addComponent(jLabel14)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel17)
-                            .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel9)
-                                .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel15))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel16)))
-                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel10)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addComponent(jLabel19))
-                            .addComponent(jScrollPane21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(jLabel18))
-                            .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel20)
-                            .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(8, 8, 8)
-                                    .addComponent(jLabel21))
-                                .addComponent(jScrollPane23, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel22)
-                                    .addComponent(jScrollPane28, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel23)
-                                    .addComponent(jScrollPane25, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel27)
-                                    .addComponent(jScrollPane29, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(8, 8, 8)
-                                        .addComponent(jLabel28))
-                                    .addComponent(jScrollPane30, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane26, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane31, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel24)
-                                    .addComponent(jLabel29))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(jLabel25))
-                            .addComponent(jScrollPane27, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(JpFoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConfirmarcadastro)
-                    .addComponent(btnCancelar))
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-
+        btnEditar.setText("Editar");
+        TpNome = new javax.swing.JTextPane();
+        
+                TpNome.setEditable(false);
+                TpNome.setToolTipText("");
+                TpNome.setText(policial.getNome());
+        TpNomeMae = new javax.swing.JTextPane();
+        
+                TpNomeMae.setEditable(false);
+                TpNomeMae.setText(policial.getNomeMae());
+        TpNomePai = new javax.swing.JTextPane();
+        
+                TpNomePai.setEditable(false);
+                TpNomePai.setText(policial.getNomePai());
+        TpEstadoCivil = new javax.swing.JTextPane();
+        
+                TpEstadoCivil.setEditable(false);
+                TpEstadoCivil.setText(policial.getEstadoCivil());
+                TpTipoSangue = new javax.swing.JTextPane();
+                
+                        TpTipoSangue.setEditable(false);
+                        TpTipoSangue.setText(policial.getTipoSangue());
+                        TpNaturalidade = new javax.swing.JTextPane();
+                        
+                                TpNaturalidade.setEditable(false);
+                                TpNaturalidade.setText(policial.getNaturalidade());
+                                TpDataNascimento = new javax.swing.JTextPane();
+                                
+                                        TpDataNascimento.setEditable(false);
+                                        TpDataNascimento.setText(policial.getDataNascimento());
+                                        TpNomeGuerra = new javax.swing.JTextPane();
+                                        
+                                                TpNomeGuerra.setEditable(false);
+                                                TpNomeGuerra.setText(policial.getNomeGuerra());
+                                                TpGraduacao = new javax.swing.JTextPane();
+                                                
+                                                        TpGraduacao.setEditable(false);
+                                                        TpGraduacao.setText(policial.getGraduacao());
+                                                        TpRgPm = new javax.swing.JTextPane();
+                                                        
+                                                                TpRgPm.setEditable(false);
+                                                                TpRgPm.setText(policial.getRgPm());
+                                                                TpEspecialidade = new javax.swing.JTextPane();
+                                                                
+                                                                        TpEspecialidade.setEditable(false);
+                                                                        TpEspecialidade.setText(policial.getEspecialidade());
+                                                                        TpMatricula = new javax.swing.JTextPane();
+                                                                        
+                                                                                TpMatricula.setEditable(false);
+                                                                                TpMatricula.setText(policial.getMatricula());
+                                                                                TpNumero = new javax.swing.JTextPane();
+                                                                                
+                                                                                        TpNumero.setEditable(false);
+                                                                                        TpNumero.setText(String.valueOf(policial.getNumero()));
+                                                                                        TpGrauInstrucao = new javax.swing.JTextPane();
+                                                                                        
+                                                                                                TpGrauInstrucao.setEditable(false);
+                                                                                                TpGrauInstrucao.setText(policial.getGrauInstrucao());
+                                                                                                TpProcedencia = new javax.swing.JTextPane();
+                                                                                                
+                                                                                                        TpProcedencia.setEditable(false);
+                                                                                                        TpProcedencia.setText(policial.getProcedencia());
+                                                                                                        TpDataInclusao = new javax.swing.JTextPane();
+                                                                                                        
+                                                                                                                TpDataInclusao.setEditable(false);
+                                                                                                                TpDataInclusao.setText(policial.getDataInclusao());
+                                                                                                                TpDataExclusao = new javax.swing.JTextPane();
+                                                                                                                
+                                                                                                                        TpDataExclusao.setEditable(false);
+                                                                                                                        TpDataExclusao.setText(policial.getDataExclusao());
+                                                                                                                        TpEmail = new javax.swing.JTextPane();
+                                                                                                                        
+                                                                                                                                TpEmail.setEditable(false);
+                                                                                                                                TpEmail.setText(policial.getEmail());
+                                                                                                                                TpPisPasep = new javax.swing.JTextPane();
+                                                                                                                                
+                                                                                                                                        TpPisPasep.setEditable(false);
+                                                                                                                                        TpPisPasep.setText(policial.getPisPasep());
+                                                                                                                                        TpCpf = new javax.swing.JTextPane();
+                                                                                                                                        
+                                                                                                                                                TpCpf.setEditable(false);
+                                                                                                                                                TpCpf.setText(policial.getCpf());
+                                                                                                                                                TpRgCivil = new javax.swing.JTextPane();
+                                                                                                                                                
+                                                                                                                                                        TpRgCivil.setEditable(false);
+                                                                                                                                                        TpRgCivil.setText(policial.getRgCivil());
+                                                                                                                                                        TpReservista = new javax.swing.JTextPane();
+                                                                                                                                                        
+                                                                                                                                                                TpReservista.setEditable(false);
+                                                                                                                                                                TpReservista.setText(policial.getReservista());
+                                                                                                                                                                TpCorPele = new javax.swing.JTextPane();
+                                                                                                                                                                
+                                                                                                                                                                        TpCorPele.setEditable(false);
+                                                                                                                                                                        TpCorPele.setText(policial.getCor());
+                                                                                                                                                                        TpAltura = new javax.swing.JTextPane();
+                                                                                                                                                                        
+                                                                                                                                                                                TpAltura.setEditable(false);
+                                                                                                                                                                                
+                                                                                                                                                                                        TpAltura.setText(String.valueOf(policial.getAltura()));
+                                                                                                                                                                                        TpCorOlhos = new javax.swing.JTextPane();
+                                                                                                                                                                                        
+                                                                                                                                                                                                TpCorOlhos.setEditable(false);
+                                                                                                                                                                                                TpCorOlhos.setText(policial.getCorOlhos());
+                                                                                                                                                                                                TpCorCbelos = new javax.swing.JTextPane();
+                                                                                                                                                                                                
+                                                                                                                                                                                                        TpCorCbelos.setEditable(false);
+                                                                                                                                                                                                        TpCorCbelos.setText(policial.getCorCabelos());
+                                                                                                                                                                                                        GroupLayout groupLayout = new GroupLayout(getContentPane());
+                                                                                                                                                                                                        groupLayout.setHorizontalGroup(
+                                                                                                                                                                                                        	groupLayout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                        		.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        			.addGap(59)
+                                                                                                                                                                                                        			.addComponent(jLabel1)
+                                                                                                                                                                                                        			.addGap(4)
+                                                                                                                                                                                                        			.addComponent(TpNome, GroupLayout.PREFERRED_SIZE, 345, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        			.addGap(65)
+                                                                                                                                                                                                        			.addComponent(jLabel5)
+                                                                                                                                                                                                        			.addGap(4)
+                                                                                                                                                                                                        			.addComponent(TpEstadoCivil, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        		.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        			.addGap(21)
+                                                                                                                                                                                                        			.addComponent(jLabel4)
+                                                                                                                                                                                                        			.addGap(4)
+                                                                                                                                                                                                        			.addComponent(TpNomeMae, GroupLayout.PREFERRED_SIZE, 345, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        			.addGap(45)
+                                                                                                                                                                                                        			.addComponent(jLabel7)
+                                                                                                                                                                                                        			.addGap(4)
+                                                                                                                                                                                                        			.addComponent(TpTipoSangue, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        		.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        			.addGap(27)
+                                                                                                                                                                                                        			.addComponent(jLabel3)
+                                                                                                                                                                                                        			.addGap(4)
+                                                                                                                                                                                                        			.addComponent(TpNomePai, GroupLayout.PREFERRED_SIZE, 345, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        			.addGap(57)
+                                                                                                                                                                                                        			.addComponent(jLabel6)
+                                                                                                                                                                                                        			.addGap(4)
+                                                                                                                                                                                                        			.addComponent(TpNaturalidade, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        		.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        			.addGap(462)
+                                                                                                                                                                                                        			.addComponent(jLabel8)
+                                                                                                                                                                                                        			.addGap(4)
+                                                                                                                                                                                                        			.addComponent(TpDataNascimento, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        		.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        			.addGap(1116)
+                                                                                                                                                                                                        			.addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        		.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        			.addGap(34)
+                                                                                                                                                                                                        			.addComponent(jLabel12)
+                                                                                                                                                                                                        			.addGap(4)
+                                                                                                                                                                                                        			.addComponent(TpGraduacao, GroupLayout.PREFERRED_SIZE, 142, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        			.addGap(20)
+                                                                                                                                                                                                        			.addComponent(jLabel14)
+                                                                                                                                                                                                        			.addGap(3)
+                                                                                                                                                                                                        			.addComponent(TpEspecialidade, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        			.addGap(40)
+                                                                                                                                                                                                        			.addComponent(jLabel11)
+                                                                                                                                                                                                        			.addGap(4)
+                                                                                                                                                                                                        			.addComponent(TpProcedencia, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        		.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        			.addGap(9)
+                                                                                                                                                                                                        			.addComponent(jLabel2)
+                                                                                                                                                                                                        			.addGap(4)
+                                                                                                                                                                                                        			.addComponent(TpNomeGuerra, GroupLayout.PREFERRED_SIZE, 142, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        			.addGap(41)
+                                                                                                                                                                                                        			.addComponent(jLabel15)
+                                                                                                                                                                                                        			.addGap(3)
+                                                                                                                                                                                                        			.addComponent(TpMatricula, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        			.addGap(19)
+                                                                                                                                                                                                        			.addComponent(jLabel9)
+                                                                                                                                                                                                        			.addGap(4)
+                                                                                                                                                                                                        			.addComponent(TpDataInclusao, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        		.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        			.addGap(56)
+                                                                                                                                                                                                        			.addComponent(jLabel17)
+                                                                                                                                                                                                        			.addGap(4)
+                                                                                                                                                                                                        			.addComponent(TpRgPm, GroupLayout.PREFERRED_SIZE, 142, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        			.addGap(47)
+                                                                                                                                                                                                        			.addComponent(jLabel16)
+                                                                                                                                                                                                        			.addGap(3)
+                                                                                                                                                                                                        			.addComponent(TpNumero, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        			.addGap(15)
+                                                                                                                                                                                                        			.addComponent(jLabel10)
+                                                                                                                                                                                                        			.addGap(4)
+                                                                                                                                                                                                        			.addComponent(TpDataExclusao, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        		.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        			.addGap(1116)
+                                                                                                                                                                                                        			.addComponent(jSeparator2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        		.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        			.addGap(29)
+                                                                                                                                                                                                        			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(26)
+                                                                                                                                                                                                        					.addComponent(jLabel22))
+                                                                                                                                                                                                        				.addComponent(jLabel23))
+                                                                                                                                                                                                        			.addGap(3)
+                                                                                                                                                                                                        			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                        				.addComponent(TpAltura, GroupLayout.PREFERRED_SIZE, 64, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        				.addComponent(TpCorPele, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        			.addGap(44)
+                                                                                                                                                                                                        			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(17)
+                                                                                                                                                                                                        					.addComponent(jLabel19))
+                                                                                                                                                                                                        				.addComponent(jLabel20, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        			.addGap(3)
+                                                                                                                                                                                                        			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                        				.addComponent(TpRgCivil, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        				.addComponent(TpReservista, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        			.addGap(52)
+                                                                                                                                                                                                        			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(27)
+                                                                                                                                                                                                        					.addComponent(jLabel18))
+                                                                                                                                                                                                        				.addComponent(jLabel21))
+                                                                                                                                                                                                        			.addGap(4)
+                                                                                                                                                                                                        			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                        				.addComponent(TpCpf, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        				.addComponent(TpPisPasep, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE)))
+                                                                                                                                                                                                        		.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        			.addGap(19)
+                                                                                                                                                                                                        			.addComponent(jLabel24)
+                                                                                                                                                                                                        			.addGap(3)
+                                                                                                                                                                                                        			.addComponent(TpCorOlhos, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        			.addGap(73)
+                                                                                                                                                                                                        			.addComponent(jLabel27)
+                                                                                                                                                                                                        			.addGap(3)
+                                                                                                                                                                                                        			.addComponent(TpEmail, GroupLayout.PREFERRED_SIZE, 408, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        		.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        			.addGap(9)
+                                                                                                                                                                                                        			.addComponent(jLabel25)
+                                                                                                                                                                                                        			.addGap(2)
+                                                                                                                                                                                                        			.addComponent(TpCorCbelos, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        			.addGap(12)
+                                                                                                                                                                                                        			.addComponent(jLabel26)
+                                                                                                                                                                                                        			.addGap(3)
+                                                                                                                                                                                                        			.addComponent(TpGrauInstrucao, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        			.addGap(33)
+                                                                                                                                                                                                        			.addComponent(btnEditar, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        			.addGap(10)
+                                                                                                                                                                                                        			.addComponent(btnConfirmar, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        		.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        			.addGap(40)
+                                                                                                                                                                                                        			.addComponent(jSeparator3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        );
+                                                                                                                                                                                                        groupLayout.setVerticalGroup(
+                                                                                                                                                                                                        	groupLayout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                        		.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        			.addGap(12)
+                                                                                                                                                                                                        			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(7)
+                                                                                                                                                                                                        					.addComponent(jLabel1))
+                                                                                                                                                                                                        				.addComponent(TpNome, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(6)
+                                                                                                                                                                                                        					.addComponent(jLabel5))
+                                                                                                                                                                                                        				.addComponent(TpEstadoCivil, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        			.addGap(7)
+                                                                                                                                                                                                        			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(7)
+                                                                                                                                                                                                        					.addComponent(jLabel4))
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(1)
+                                                                                                                                                                                                        					.addComponent(TpNomeMae, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(6)
+                                                                                                                                                                                                        					.addComponent(jLabel7))
+                                                                                                                                                                                                        				.addComponent(TpTipoSangue, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        			.addGap(7)
+                                                                                                                                                                                                        			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(7)
+                                                                                                                                                                                                        					.addComponent(jLabel3))
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(1)
+                                                                                                                                                                                                        					.addComponent(TpNomePai, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(5)
+                                                                                                                                                                                                        					.addComponent(jLabel6))
+                                                                                                                                                                                                        				.addComponent(TpNaturalidade, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        			.addGap(9)
+                                                                                                                                                                                                        			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(6)
+                                                                                                                                                                                                        					.addComponent(jLabel8))
+                                                                                                                                                                                                        				.addComponent(TpDataNascimento, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        			.addGap(9)
+                                                                                                                                                                                                        			.addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, 10, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        			.addGap(8)
+                                                                                                                                                                                                        			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(7)
+                                                                                                                                                                                                        					.addComponent(jLabel12))
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(1)
+                                                                                                                                                                                                        					.addComponent(TpGraduacao, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(3)
+                                                                                                                                                                                                        					.addComponent(jLabel14))
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(3)
+                                                                                                                                                                                                        					.addComponent(TpEspecialidade, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(3)
+                                                                                                                                                                                                        					.addComponent(jLabel11))
+                                                                                                                                                                                                        				.addComponent(TpProcedencia, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        			.addGap(4)
+                                                                                                                                                                                                        			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(5)
+                                                                                                                                                                                                        					.addComponent(jLabel2))
+                                                                                                                                                                                                        				.addComponent(TpNomeGuerra, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(4)
+                                                                                                                                                                                                        					.addComponent(jLabel15))
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(1)
+                                                                                                                                                                                                        					.addComponent(TpMatricula, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(4)
+                                                                                                                                                                                                        					.addComponent(jLabel9))
+                                                                                                                                                                                                        				.addComponent(TpDataInclusao, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        			.addGap(6)
+                                                                                                                                                                                                        			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(4)
+                                                                                                                                                                                                        					.addComponent(jLabel17))
+                                                                                                                                                                                                        				.addComponent(TpRgPm, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(6)
+                                                                                                                                                                                                        					.addComponent(jLabel16))
+                                                                                                                                                                                                        				.addComponent(TpNumero, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(6)
+                                                                                                                                                                                                        					.addComponent(jLabel10))
+                                                                                                                                                                                                        				.addComponent(TpDataExclusao, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        			.addGap(14)
+                                                                                                                                                                                                        			.addComponent(jSeparator2, GroupLayout.PREFERRED_SIZE, 10, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        			.addGap(3)
+                                                                                                                                                                                                        			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(12)
+                                                                                                                                                                                                        					.addComponent(jLabel22)
+                                                                                                                                                                                                        					.addGap(14)
+                                                                                                                                                                                                        					.addComponent(jLabel23))
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(6)
+                                                                                                                                                                                                        					.addComponent(TpAltura, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        					.addGap(8)
+                                                                                                                                                                                                        					.addComponent(TpCorPele, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(12)
+                                                                                                                                                                                                        					.addComponent(jLabel19)
+                                                                                                                                                                                                        					.addGap(11)
+                                                                                                                                                                                                        					.addComponent(jLabel20))
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(6)
+                                                                                                                                                                                                        					.addComponent(TpRgCivil, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        					.addGap(5)
+                                                                                                                                                                                                        					.addComponent(TpReservista, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(6)
+                                                                                                                                                                                                        					.addComponent(jLabel18)
+                                                                                                                                                                                                        					.addGap(11)
+                                                                                                                                                                                                        					.addComponent(jLabel21))
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addComponent(TpCpf, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        					.addGap(5)
+                                                                                                                                                                                                        					.addComponent(TpPisPasep, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+                                                                                                                                                                                                        			.addGap(8)
+                                                                                                                                                                                                        			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(6)
+                                                                                                                                                                                                        					.addComponent(jLabel24))
+                                                                                                                                                                                                        				.addComponent(TpCorOlhos, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(6)
+                                                                                                                                                                                                        					.addComponent(jLabel27))
+                                                                                                                                                                                                        				.addComponent(TpEmail, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        			.addGap(8)
+                                                                                                                                                                                                        			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(6)
+                                                                                                                                                                                                        					.addComponent(jLabel25))
+                                                                                                                                                                                                        				.addComponent(TpCorCbelos, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        				.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                        					.addGap(6)
+                                                                                                                                                                                                        					.addComponent(jLabel26))
+                                                                                                                                                                                                        				.addComponent(TpGrauInstrucao, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                        				.addComponent(btnEditar)
+                                                                                                                                                                                                        				.addComponent(btnConfirmar))
+                                                                                                                                                                                                        			.addGap(14)
+                                                                                                                                                                                                        			.addComponent(jSeparator3, GroupLayout.PREFERRED_SIZE, 10, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                        );
+                                                                                                                                                                                                        getContentPane().setLayout(groupLayout);
+        
         pack();
     }// </editor-fold>                        
 
 
     // Variables declaration - do not modify                     
-    private javax.swing.JTextPane JpEstadoCivil;
-    private javax.swing.JPanel JpFoto;
+    private javax.swing.JTextPane TpEstadoCivil;
     private javax.swing.JTextPane TpAltura;
     private javax.swing.JTextPane TpCorCbelos;
     private javax.swing.JTextPane TpCorOlhos;
@@ -622,11 +625,9 @@ public class JIFDetalhesPolicial extends javax.swing.JInternalFrame {
     private javax.swing.JTextPane TpReservista;
     private javax.swing.JTextPane TpRgCivil;
     private javax.swing.JTextPane TpRgPm;
-    private javax.swing.JTextPane TpTelefone1;
-    private javax.swing.JTextPane TpTelefone2;
     private javax.swing.JTextPane TpTipoSangue;
-    private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnConfirmarcadastro;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnConfirmar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -646,8 +647,6 @@ public class JIFDetalhesPolicial extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -655,38 +654,9 @@ public class JIFDetalhesPolicial extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane11;
-    private javax.swing.JScrollPane jScrollPane13;
-    private javax.swing.JScrollPane jScrollPane14;
-    private javax.swing.JScrollPane jScrollPane15;
-    private javax.swing.JScrollPane jScrollPane16;
-    private javax.swing.JScrollPane jScrollPane17;
-    private javax.swing.JScrollPane jScrollPane18;
-    private javax.swing.JScrollPane jScrollPane19;
-    private javax.swing.JScrollPane jScrollPane20;
-    private javax.swing.JScrollPane jScrollPane21;
-    private javax.swing.JScrollPane jScrollPane22;
-    private javax.swing.JScrollPane jScrollPane23;
-    private javax.swing.JScrollPane jScrollPane24;
-    private javax.swing.JScrollPane jScrollPane25;
-    private javax.swing.JScrollPane jScrollPane26;
-    private javax.swing.JScrollPane jScrollPane27;
-    private javax.swing.JScrollPane jScrollPane28;
-    private javax.swing.JScrollPane jScrollPane29;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane30;
-    private javax.swing.JScrollPane jScrollPane31;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
     // End of variables declaration                   
 }
 

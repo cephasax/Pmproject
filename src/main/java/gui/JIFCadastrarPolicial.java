@@ -50,7 +50,7 @@ public class JIFCadastrarPolicial extends javax.swing.JInternalFrame {
         TpNomeMae = new javax.swing.JTextPane();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        JpEstadoCivil = new javax.swing.JTextPane();
+        TpEstadoCivil = new javax.swing.JTextPane();
         jScrollPane6 = new javax.swing.JScrollPane();
         TpNaturalidade = new javax.swing.JTextPane();
         jLabel6 = new javax.swing.JLabel();
@@ -151,6 +151,7 @@ public class JIFCadastrarPolicial extends javax.swing.JInternalFrame {
 				pm.setRgCivil(TpRgCivil.getText());
 				pm.setRgPm(TpRgPm.getText());
 				pm.setTipoSangue(TpTipoSangue.getText());
+				pm.setEstadoCivil(TpEstadoCivil.getText());
 
 				Service sv = new Service();
 				sv.cadastrarPolicial(pm);
@@ -170,7 +171,7 @@ public class JIFCadastrarPolicial extends javax.swing.JInternalFrame {
         jScrollPane4.setViewportView(TpNomeMae);
 
         jLabel5.setText("Estado civil:");
-        jScrollPane5.setViewportView(JpEstadoCivil);
+        jScrollPane5.setViewportView(TpEstadoCivil);
         jScrollPane6.setViewportView(TpNaturalidade);
 
         jLabel6.setText("Naturalidade:");
@@ -522,7 +523,7 @@ public class JIFCadastrarPolicial extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify                     
-    private javax.swing.JTextPane JpEstadoCivil;
+    private javax.swing.JTextPane TpEstadoCivil;
     private javax.swing.JTextPane TpAltura;
     private javax.swing.JTextPane TpCorCbelos;
     private javax.swing.JTextPane TpCorOlhos;

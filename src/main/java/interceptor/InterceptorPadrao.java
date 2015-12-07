@@ -192,7 +192,6 @@ public class InterceptorPadrao extends EmptyInterceptor {
 
 	@Override
 	public void postFlush(@SuppressWarnings("rawtypes") Iterator entities) {
-		
 		super.postFlush(entities);
 
 		try {

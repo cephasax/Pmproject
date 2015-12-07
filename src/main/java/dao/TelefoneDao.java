@@ -15,7 +15,7 @@ import model.Telefone;
 public class TelefoneDao extends GenericDao  {
 	
 	//consultar por idPolicial
-	public List<Telefone> consultarPorIdPolicial(Integer id) {
+	public List<Telefone> consultarPorIdPolicial(int id) {
 		CriteriaBuilder builder = Banco.getInstance().getEntityManager().getCriteriaBuilder();
 		
 		CriteriaQuery<Telefone> query = builder.createQuery(Telefone.class);

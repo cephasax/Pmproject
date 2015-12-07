@@ -15,6 +15,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JMenuItem;
+import javax.swing.JMenu;
 
 /**
  *
@@ -57,7 +59,6 @@ public class JFPrincipal extends javax.swing.JFrame {
         jdesktopMain = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuMain = new javax.swing.JMenu();
-        jMiListarPoliciais = new javax.swing.JMenuItem();
         jMiCadastrarPoliciais = new javax.swing.JMenuItem();
         jMiCadastrarPoliciais.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
@@ -69,14 +70,8 @@ public class JFPrincipal extends javax.swing.JFrame {
         	}
         });
         jMiCadastrarDocumento = new javax.swing.JMenuItem();
-        jMiCadastrarInformacao = new javax.swing.JMenuItem();
         jMenuRelatorios = new javax.swing.JMenu();
-        jMiBuscarPolicial = new javax.swing.JMenuItem();
-        jMiBuscaAvançada = new javax.swing.JMenuItem();
         jMiRelatorioGeral = new javax.swing.JMenuItem();
-        jMenuOpcoes = new javax.swing.JMenu();
-        jMenuSobre = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,15 +100,7 @@ public class JFPrincipal extends javax.swing.JFrame {
         
         getContentPane().add(jdesktopMain, BorderLayout.CENTER);
 
-        jMenuMain.setText("Menu");
-
-        jMiListarPoliciais.setText("Listar policiais");
-        jMiListarPoliciais.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMiListarPoliciaisActionPerformed(evt);
-            }
-        });
-        jMenuMain.add(jMiListarPoliciais);
+        jMenuMain.setText("Cadastrar");
 
         jMiCadastrarPoliciais.setText("Cadastrar policiais");
         jMenuMain.add(jMiCadastrarPoliciais);
@@ -124,37 +111,101 @@ public class JFPrincipal extends javax.swing.JFrame {
                 jMiCadastrarDocumentoActionPerformed(evt);
             }
         });
+        jMiCadastrarAlteracao = new javax.swing.JMenuItem();
+        jMiCadastrarAlteracao.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		JIFCadastrarAlteracao jca = new JIFCadastrarAlteracao();
+                jdesktopMain.add(jca);
+                jca.pack();
+                jca.setVisible(true);
+        		
+        	}
+        });
+        
+                jMiCadastrarAlteracao.setText("Cadastrar alteracao");
+                jMenuMain.add(jMiCadastrarAlteracao);
+        
+        jMiCadastrarCurso = new JMenuItem("Cadastrar curso");
+        jMiCadastrarCurso.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		JIFCadastrarCurso jcc = new JIFCadastrarCurso();
+        		jdesktopMain.add(jcc);
+        		jcc.pack();
+        		jcc.setVisible(true);
+        		
+        	}
+        });
+        jMenuMain.add(jMiCadastrarCurso);
         jMenuMain.add(jMiCadastrarDocumento);
 
-        jMiCadastrarInformacao.setText("Cadastrar informações um policial");
-        jMenuMain.add(jMiCadastrarInformacao);
-
         jMenuBar1.add(jMenuMain);
+        
+        mntmCadas = new JMenuItem("Cadastrar hist\u00F3rico disciplinar");
+        mntmCadas.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		JIFCadastrarHistoricoDisciplinar jchd = new JIFCadastrarHistoricoDisciplinar();
+        		jdesktopMain.add(jchd);
+        		jchd.pack();
+        		jchd.setVisible(true);
+        	}
+        });
+        jMenuMain.add(mntmCadas);
+        
+        mntmCadastrarPromoo = new JMenuItem("Cadastrar promo\u00E7\u00E3o");
+        mntmCadastrarPromoo.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		JIFCadastrarPromocao jcp = new JIFCadastrarPromocao();
+        		jdesktopMain.add(jcp);
+        		jcp.pack();
+        		jcp.setVisible(true);
+        	}
+        });
+        jMenuMain.add(mntmCadastrarPromoo);
+        
+        mntmCadastrarTelefone = new JMenuItem("Cadastrar Telefone");
+        mntmCadastrarTelefone.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		JIFCadastrarTelefone jct = new JIFCadastrarTelefone();
+        		jdesktopMain.add(jct);
+        		jct.pack();
+        		jct.setVisible(true);
+        	}
+        });
+        jMenuMain.add(mntmCadastrarTelefone);
 
-        jMenuRelatorios.setText("Relatorios");
-
-        jMiBuscarPolicial.setText("Buscar policial");
-        jMenuRelatorios.add(jMiBuscarPolicial);
-
-        jMiBuscaAvançada.setText("Busca avançada");
-        jMenuRelatorios.add(jMiBuscaAvançada);
+        jMenuRelatorios.setText("Listar");
+        jMiListarPoliciais = new javax.swing.JMenuItem();
+        jMenuRelatorios.add(jMiListarPoliciais);
+        
+                jMiListarPoliciais.setText("Listar policiais");
+                jMiListarPoliciais.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        jMiListarPoliciaisActionPerformed(evt);
+                    }
+                });
 
         jMiRelatorioGeral.setText("Relatório geral");
         jMenuRelatorios.add(jMiRelatorioGeral);
 
         jMenuBar1.add(jMenuRelatorios);
 
-        jMenuOpcoes.setText("Opções");
-
-        jMenuSobre.setText("Sobre");
-        jMenuOpcoes.add(jMenuSobre);
-
-        jMenuItem1.setText("Sair");
-        jMenuOpcoes.add(jMenuItem1);
-
-        jMenuBar1.add(jMenuOpcoes);
-
         setJMenuBar(jMenuBar1);
+        
+        mnBuscas = new JMenu("Buscar");
+        jMenuBar1.add(mnBuscas);
+        jMenuOpcoes = new javax.swing.JMenu();
+        jMenuSobre = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        
+                jMenuOpcoes.setText("Opções");
+                
+                        jMenuSobre.setText("Sobre");
+                        jMenuOpcoes.add(jMenuSobre);
+                        
+                                jMenuItem1.setText("Sair");
+                                jMenuOpcoes.add(jMenuItem1);
+                                
+                                        jMenuBar1.add(jMenuOpcoes);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         layout.setHorizontalGroup(
@@ -236,14 +287,17 @@ public class JFPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuOpcoes;
     private javax.swing.JMenu jMenuRelatorios;
     private javax.swing.JMenuItem jMenuSobre;
-    private javax.swing.JMenuItem jMiBuscaAvançada;
-    private javax.swing.JMenuItem jMiBuscarPolicial;
     private javax.swing.JMenuItem jMiCadastrarDocumento;
-    private javax.swing.JMenuItem jMiCadastrarInformacao;
+    private javax.swing.JMenuItem jMiCadastrarAlteracao;
     private javax.swing.JMenuItem jMiCadastrarPoliciais;
     private javax.swing.JMenuItem jMiListarPoliciais;
     private javax.swing.JMenuItem jMiRelatorioGeral;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JDesktopPane jdesktopMain;
+    private JMenuItem jMiCadastrarCurso;
+    private JMenuItem mntmCadas;
+    private JMenuItem mntmCadastrarPromoo;
+    private JMenuItem mntmCadastrarTelefone;
+    private JMenu mnBuscas;
     // End of variables declaration                   
 }

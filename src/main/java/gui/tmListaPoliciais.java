@@ -18,7 +18,7 @@ public class tmListaPoliciais extends AbstractTableModel {
 	private List<Policial> linhas;
 
 	/* Array de Strings com o nome das colunas. */
-	private String[] colunas = new String[] { "Graduacao", "Nome", "Numero", "Matricula" };
+	private String[] colunas = new String[] { "", "Graduacao", "Nome", "Numero", "Matricula" };
 
 	/* Cria um FuncionarioTableModel vazio. */
 	public tmListaPoliciais() {
@@ -62,13 +62,13 @@ public class tmListaPoliciais extends AbstractTableModel {
 	@Override
 	public Class<?> getColumnClass(int columnIndex) {
 		switch (columnIndex) {
-		case 0: // graduacao
+		case 1: // graduacao
 			return String.class;
-		case 1: // nome
+		case 2: // nome
 			return String.class;
-		case 2: // numero
+		case 3: // numero
 			return int.class;
-		case 3: // matricula
+		case 4: // matricula
 			return String.class;
 		default:
 			return null;
@@ -84,13 +84,13 @@ public class tmListaPoliciais extends AbstractTableModel {
 		Policial policial = linhas.get(rowIndex);
 
 		switch (columnIndex) {
-		case 0: // graduacao
+		case 1: // graduacao
 			return policial.getGraduacao();
-		case 1: // nome
+		case 2: // nome
 			return policial.getNome();
-		case 2: // numero
+		case 3: // numero
 			return policial.getNumero();
-		case 3: // matricula
+		case 4: // matricula
 			return policial.getMatricula();
 		default:
 			return null;
