@@ -11,6 +11,7 @@ import javax.swing.UIManager;
 
 import java.awt.event.ActionListener;
 import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
@@ -196,6 +197,11 @@ public class JFPrincipal extends javax.swing.JFrame {
         jMenuOpcoes = new javax.swing.JMenu();
         jMenuSobre = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem1.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		System.exit(0);
+        	}
+        });
         
                 jMenuOpcoes.setText("Opções");
                 

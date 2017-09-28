@@ -1,4 +1,7 @@
-package gui;
+// Em produção
+
+
+/*package gui;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,58 +10,50 @@ import javax.swing.table.AbstractTableModel;
 
 import dao.PolicialDao;
 import model.Policial;
+import model.Telefone;
 
-/**
+*//**
  * Implementação de Table Model para exibir os Sócios.
  * 
  * @author Eric Yuzo
- */
-public class TmListaPoliciais extends AbstractTableModel {
-	/* Lista de Sócios que representam as linhas. */
-	private List<Policial> linhas;
+ *//*
+public class TmListaTelefones extends AbstractTableModel {
+	
+	private static final long serialVersionUID = 1L;
+	
+	private List<Telefone> linhasTelefone;
+	private List<Policial> linhasPolicial;
 
-	/* Array de Strings com o nome das colunas. */
-	private String[] colunas = new String[] { "", "Graduacao", "Nome", "Numero", "Matricula" };
+	private String[] colunas = new String[] { "", "Graduacao", "Nome", "Telefone", "Tipo" };
 
-	/* Cria um FuncionarioTableModel vazio. */
-	public TmListaPoliciais() {
-		linhas = new ArrayList<Policial>();
+	public TmListaTelefones() {
+		linhasTelefone = new ArrayList<Telefone>();
 	}
 
-	/*
-	 * Cria um FuncionarioTableModel carregado com a lista de sócios
-	 * especificada.
-	 */
-	public TmListaPoliciais(List<Policial> listaDepoliciais) {
-		linhas = new ArrayList<Policial>(listaDepoliciais);
+	public TmListaTelefones(List<Telefone> listaTelefones) {
+		linhasTelefone = new ArrayList<Telefone>(listaTelefones);
+		PolicialDao pmDao = new PolicialDao();
+		
+		linhasPolicial = new ArrayList<Policial>();
+		linhasPolicial = pmDao.listar();
+		for(Policial pm: linhasPolicial){
+			
+		}
 	}
 
-	/* Retorna a quantidade de colunas. */
 	public int getColumnCount() {
-		// Está retornando o tamanho do array "colunas".
-		// Mas como o array é fixo, vai sempre retornar 4.
 		return colunas.length;
 	}
 
-	/* Retorna a quantidade de linhas. */
 	public int getRowCount() {
-		// Retorna o tamanho da lista de sócios.
-		return linhas.size();
+		return linhasTelefone.size();
 	}
 
-	/*
-	 * Retorna o nome da coluna no índice especificado. Este método é usado pela
-	 * JTable para saber o texto do cabeçalho.
-	 */
 	@Override
 	public String getColumnName(int columnIndex) {
 		return colunas[columnIndex];
 	};
 
-	/*
-	 * Retorna a classe dos elementos da coluna especificada. Este método é
-	 * usado pela JTable na hora de definir o editor da célula.
-	 */
 	@Override
 	public Class<?> getColumnClass(int columnIndex) {
 		switch (columnIndex) {
@@ -66,22 +61,19 @@ public class TmListaPoliciais extends AbstractTableModel {
 			return String.class;
 		case 2: // nome
 			return String.class;
-		case 3: // numero
-			return int.class;
-		case 4: // matricula
+		case 3: // Telefone
+			return String.class;
+		case 4: // Tipo
 			return String.class;
 		default:
 			return null;
 		}
 	}
 
-	/*
-	 * Retorna o valor da célula especificada pelos índices da linha e da
-	 * coluna.
-	 */
+	
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		// Pega o sócio da linha especificada.
-		Policial policial = linhas.get(rowIndex);
+
+		Telefone telefone = linhasTelefone.get(rowIndex);
 
 		switch (columnIndex) {
 		case 1: // graduacao
@@ -98,35 +90,35 @@ public class TmListaPoliciais extends AbstractTableModel {
 
 	}
 
-	/*
+	
 	 * Retorna um valor booleano que define se a célula em questão pode ser
 	 * editada ou não. Este método é utilizado pela JTable na hora de definir o
 	 * editor da célula. Neste caso, estará sempre retornando false, não
 	 * permitindo que nenhuma célula seja editada.
-	 */
+	 
 	@Override
 	public boolean isCellEditable(int rowIndex, int columnIndex) {
 		return false;
 	}
 
-	/* Retorna o sócio da linha especificada. */
-	public Policial getPolicial(int indiceLinha) {
+	 Retorna o sócio da linha especificada. 
+	public Telefone getTelefone(int indiceLinha) {
 		if (indiceLinha < linhas.size()) {
 			return linhas.get(indiceLinha);
 		}
 		return null;
 	}
 
-	/* Verifica se este table model está vazio. */
+	 Verifica se este table model está vazio. 
 	public boolean isEmpty() {
 		return linhas.isEmpty();
 	}
 
-	public List<Policial> getLinhas() {
+	public List<Telefone> getLinhas() {
 		return linhas;
 	}
 
-	public void setLinhas(List<Policial> linhas) {
+	public void setLinhas(List<Telefone> linhas) {
 		this.linhas = linhas;
 	}
 
@@ -138,4 +130,4 @@ public class TmListaPoliciais extends AbstractTableModel {
 		this.colunas = colunas;
 	}
 
-}
+}*/

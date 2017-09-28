@@ -28,7 +28,7 @@ import model.Policial;
  *
  * @author Cephas
  */
-public class JIFListarPoliciais extends javax.swing.JInternalFrame {
+public class JIFListarTelefones extends javax.swing.JInternalFrame {
 
 	
 	private static TmListaPoliciais modelo;
@@ -39,7 +39,7 @@ public class JIFListarPoliciais extends javax.swing.JInternalFrame {
 	/**
      * Creates new form JIFListarPolicial
      */
-    public JIFListarPoliciais() {
+    public JIFListarTelefones() {
 		setClosable(true);
         initComponents();
         refreshPopulate();

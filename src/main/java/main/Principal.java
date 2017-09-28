@@ -28,7 +28,11 @@ public class Principal {
 
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
 		
-		UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+		try {
+			  UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+			} catch(Exception e) {
+			  System.out.println("Error setting native LAF: " + e);
+			}
 		JFPrincipal jfp = JFPrincipal.getInstancia();
 		
 	}

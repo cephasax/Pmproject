@@ -26,7 +26,7 @@ import model.Curso;
 public class JIFCadastrarCurso extends javax.swing.JInternalFrame {
 
 	private int linhaSelecionada = -1;
-	private static tmListaPoliciais modelo;
+	private static TmListaPoliciais modelo;
 	public PolicialDao pdao = new PolicialDao();
 	
     /**
@@ -54,7 +54,7 @@ public class JIFCadastrarCurso extends javax.swing.JInternalFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         tbDadosPms = new javax.swing.JTable();
         
-        modelo = new tmListaPoliciais(/*pdao.listar()*/);
+        modelo = new TmListaPoliciais(/*pdao.listar()*/);
         tbDadosPms.setModel(modelo);
         
         
